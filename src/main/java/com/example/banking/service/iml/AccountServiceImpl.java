@@ -1,6 +1,8 @@
 package com.example.banking.service.iml;
 
 import com.example.banking.dto.AccountDto;
+import com.example.banking.entity.Account;
+import com.example.banking.mapper.AccountMapper;
 import com.example.banking.repository.AccountRepository;
 import com.example.banking.service.AccountService;
 import org.springframework.stereotype.Service;
@@ -15,8 +17,9 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AccountDto createAccount(AccountDto account) {
-
-        return null;
+    public AccountDto createAccount(AccountDto accountDto) {
+        Account account = AccountMapper.mapToAccount(accountDto);
+        Account savedAccount = accountRepository.save(account);
+        return AccountMapper.mapToAccountDto(savedAccount);
     }
 }
