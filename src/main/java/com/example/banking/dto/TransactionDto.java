@@ -1,5 +1,6 @@
 package com.example.banking.dto;
 
+import com.example.banking.enums.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,10 +13,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class TransactionDto {
     private Long accountId;
-    private String transactionType;
+    private TransactionType transactionType;
+
     private BigDecimal amount;
     private LocalDateTime transactionDate;
-    public TransactionDto(Long accountId, String transactionType, BigDecimal amount) {
+    public TransactionDto(Long accountId, TransactionType transactionType, BigDecimal amount) {
         this.accountId = accountId;
         this.transactionType = transactionType;
         this.amount = amount;
