@@ -1,6 +1,8 @@
 package com.example.banking.entity;
 
+import com.example.banking.enums.TransactionType;
 import jakarta.persistence.*;
+import jdk.jfr.BooleanFlag;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,14 +27,16 @@ public class Transaction {
     private Account account;
 
     @Column(name = "transaction_type")
-    private String transactionType;
+    @Enumerated(EnumType.STRING)
+    private TransactionType transactionType;
+
 
     private BigDecimal amount;
     @Column(name = "transaction_date")
     private LocalDateTime transactionDate;
 
 
-    public Transaction(Account account, String transactionType, BigDecimal amount, LocalDateTime localDateTime) {
+    public Transaction(Account account, TransactionType transactionType, BigDecimal amount, LocalDateTime localDateTime) {
         this.account=account;
         this.transactionType=transactionType;
         this.amount=amount;
