@@ -20,8 +20,10 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "account_id")
-    private Long accountId;
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
+
     @Column(name = "transaction_type")
     private String transactionType;
 
@@ -30,8 +32,8 @@ public class Transaction {
     private LocalDateTime transactionDate;
 
 
-    public Transaction(Long accountId, String transactionType, BigDecimal amount, LocalDateTime localDateTime) {
-        this.accountId=accountId;
+    public Transaction(Account account, String transactionType, BigDecimal amount, LocalDateTime localDateTime) {
+        this.account=account;
         this.transactionType=transactionType;
         this.amount=amount;
         this.transactionDate = LocalDateTime.now();
