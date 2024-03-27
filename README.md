@@ -1,6 +1,6 @@
 # Banking API
 
-This project implements a simple banking API. The API supports basic banking operations such as account creation, getting account information, depositing money, withdrawing money, and deleting an account.
+This project implements a simple banking API allowing users to perform basic banking operations such as account creation, retrieval of account information, depositing money, withdrawing money, and deleting an account. Additionally, it supports transaction functionalities where deposits and withdrawals automatically update the account balance in the database.
 
 ## Technologies Used
 
@@ -18,12 +18,37 @@ This project implements a simple banking API. The API supports basic banking ope
 
 ## API Usage
 
-- `GET /api/accounts`: Retrieves all account information.
-- `GET /api/accounts/{id}`: Retrieves information for a specific account.
-- `POST /api/accounts`: Creates a new account.
-- `PUT /api/accounts/{id}/deposit`: Deposits money into a specific account.
-- `PUT /api/accounts/{id}/withdraw`: Withdraws money from a specific account.
-- `DELETE /api/accounts/{id}`: Deletes a specific account.
+### Account Endpoints:
+
+- **GET /api/accounts**: 
+  - Retrieves information for all accounts.
+
+- **GET /api/accounts/{id}**: 
+  - Retrieves information for a specific account.
+
+- **POST /api/accounts**: 
+  - Creates a new account.
+
+- **PUT /api/accounts/{id}/deposit**: 
+  - Deposits money into a specific account.
+
+- **PUT /api/accounts/{id}/withdraw**: 
+  - Withdraws money from a specific account.
+
+- **DELETE /api/accounts/{id}**: 
+  - Deletes a specific account.
+
+### Transaction Endpoints:
+
+- **GET /api/transactions**: 
+  - Retrieves information for all transactions.
+
+- **GET /api/transactions/{id}**: 
+  - Retrieves information for a specific transaction.
+
+- **POST /api/transactions**: 
+  - Creates a new transaction.
+
 
 ## Contributing
 
