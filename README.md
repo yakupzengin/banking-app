@@ -20,34 +20,22 @@ This project implements a simple banking API allowing users to perform basic ban
 
 ### Account Endpoints:
 
-- **GET /api/accounts**: 
-  - Retrieves information for all accounts.
-
-- **GET /api/accounts/{id}**: 
-  - Retrieves information for a specific account.
-
-- **POST /api/accounts**: 
-  - Creates a new account.
-
-- **PUT /api/accounts/{id}/deposit**: 
-  - Deposits money into a specific account.
-
-- **PUT /api/accounts/{id}/withdraw**: 
-  - Withdraws money from a specific account.
-
-- **DELETE /api/accounts/{id}**: 
-  - Deletes a specific account.
+| Endpoint                        | Description                                   |
+|---------------------------------|-----------------------------------------------|
+| GET /api/accounts               | Retrieve information for all accounts.        |
+| GET /api/accounts/{id}          | Retrieve information for a specific account.  |
+| POST /api/accounts              | Create a new account.                         |
+| PUT /api/accounts/{id}/deposit  | Deposit money into a specific account.        |
+| PUT /api/accounts/{id}/withdraw | Withdraw money from a specific account.       |
+| DELETE /api/accounts/{id}       | Delete a specific account.                    |
 
 ### Transaction Endpoints:
 
-- **GET /api/transactions**: 
-  - Retrieves information for all transactions.
-
-- **GET /api/transactions/{id}**: 
-  - Retrieves information for a specific transaction.
-
-- **POST /api/transactions**: 
-  - Creates a new transaction.
+| Endpoint                        | Description                                   |
+|---------------------------------|-----------------------------------------------|
+| GET /api/transactions           | Retrieve information for all transactions.    |
+| GET /api/transactions/{id}      | Retrieve information for a specific transaction. |
+| POST /api/transactions          | Create a new transaction.                     |
 
 
 ## Contributing
