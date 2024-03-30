@@ -13,4 +13,8 @@ public interface TransactionService {
     TransactionDto getTransactionById(Long id);
 
     TransactionDto createTransaction(TransactionDto transactionDto);
+
+    void updateAccountBalance(TransactionDto transactionDto);
+
+    void createTransactionAndUpdateBalance(TransactionDto transactionDto);
 }
