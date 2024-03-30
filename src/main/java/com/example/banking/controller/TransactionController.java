@@ -37,7 +37,7 @@ public class TransactionController {
     // REST API endpoint to create a new transaction
     @PostMapping
     public ResponseEntity<TransactionDto> createTransaction(@RequestBody TransactionDto transactionDto){
-        transactionServiceImpl.updateAccountBalance(transactionDto);
-        return new ResponseEntity<>(transactionService.createTransaction(transactionDto), HttpStatus.CREATED);
+        transactionService.createTransactionAndUpdateBalance(transactionDto);
+        return new ResponseEntity<>(transactionDto, HttpStatus.CREATED);
     }
 }
