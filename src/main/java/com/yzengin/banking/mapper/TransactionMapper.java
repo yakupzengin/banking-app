@@ -5,23 +5,24 @@ import com.yzengin.banking.entity.Account;
 import com.yzengin.banking.entity.Transaction;
 
 public class TransactionMapper {
+
     public static Transaction mapToTransaction(TransactionDto transactionDto) {
-        return new Transaction(
-                // Creating an Account object and assigning it to the Transaction entity
-                new Account(transactionDto.getAccountId()),
-                transactionDto.getTransactionType(),
-                transactionDto.getAmount(),
-                transactionDto.getTransactionDate()
-        );
+        Transaction transaction = new Transaction();
+        transaction.setAccount(new Account(transactionDto.getAccountId())); // Set the Account using accountId
+        transaction.setTransactionType(transactionDto.getTransactionType());
+        transaction.setAmount(transactionDto.getAmount());
+        transaction.setTransactionDate(transactionDto.getTransactionDate());
+        transaction.setDescription(transactionDto.getDescription());
+        return transaction;
     }
 
     public static TransactionDto mapToTransactionDto(Transaction transaction) {
-        return new TransactionDto(
-                // Retrieving Account ID from the Transaction entity
-                transaction.getAccount().getId(),
-                transaction.getTransactionType(),
-                transaction.getAmount(),
-                transaction.getTransactionDate()
-        );
+        TransactionDto transactionDto = new TransactionDto();
+        transactionDto.setAccountId(transaction.getAccount().getId()); // Get the accountId from Account
+        transactionDto.setTransactionType(transaction.getTransactionType());
+        transactionDto.setAmount(transaction.getAmount());
+        transactionDto.setTransactionDate(transaction.getTransactionDate());
+        transactionDto.setDescription(transaction.getDescription());
+        return transactionDto;
     }
 }
