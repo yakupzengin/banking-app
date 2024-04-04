@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -17,12 +18,17 @@ import java.math.BigDecimal;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private Long id;
-    @Column(name = "account_holder_name")
-    private String accountHolderName;
+    private long id;
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
     private BigDecimal balance;
+    private String currency;
+    @Column(name = "opened_at")
+    private LocalDateTime openedAt;
 
     public Account(Long accountId) {
         this.id=accountId;
     }
+
 }
