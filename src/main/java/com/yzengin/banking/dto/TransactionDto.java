@@ -14,13 +14,8 @@ import java.time.LocalDateTime;
 public class TransactionDto {
     private Long accountId;
     private TransactionType transactionType;
-
     private BigDecimal amount;
     private LocalDateTime transactionDate;
-    public TransactionDto(Long accountId, TransactionType transactionType, BigDecimal amount) {
-        this.accountId = accountId;
-        this.transactionType = transactionType;
-        this.amount = amount;
-        this.transactionDate = LocalDateTime.now();
-    }
+    private String description;
+
 }
