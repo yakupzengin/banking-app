@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TransactionServiceImpl implements TransactionService {
@@ -71,6 +72,12 @@ public class TransactionServiceImpl implements TransactionService {
         Transaction transaction = transactionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Transaction not found with id: " + id));
         return TransactionMapper.mapToTransactionDto(transaction);
+    }
+    public List<TransactionDto> getUserTransactions(Long userId) {
+        List<Transaction> transactions = transactionRepository.findByAccountId(userId);
+        return transactions.stream()
+                .map(TransactionMapper::mapToTransactionDto)
+                .collect(Collectors.toList());
     }
     public List<TransactionDto> getTransactionAll(){
         List<Transaction> transactions = transactionRepository.findAll();
