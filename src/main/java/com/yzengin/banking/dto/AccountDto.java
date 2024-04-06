@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class AccountDto {
     private Long userId;
-    BigDecimal balance;
+    private BigDecimal balance;
     private String currency;
     private LocalDateTime openedAt;
 }
