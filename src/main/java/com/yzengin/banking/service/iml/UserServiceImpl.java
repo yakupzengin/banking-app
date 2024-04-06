@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto createAccount(UserDto userDto) {
+    public UserDto createUser(UserDto userDto) {
         return null;
     }
 
