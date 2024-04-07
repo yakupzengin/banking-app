@@ -59,12 +59,6 @@ public class UserController {
         return new ResponseEntity<>(userService.addAccountToUser(id, accountDto), HttpStatus.CREATED);
     }
 
-    // Endpoint to add a transaction to a user
-    @PostMapping("/{id}/transactions")
-    public ResponseEntity<TransactionDto> addTransactionToUser(@PathVariable Long id, @RequestBody TransactionDto transactionDto) {
-        return new ResponseEntity<>(userService.addTransactionToUser(id, transactionDto), HttpStatus.CREATED);
-    }
-
     // Endpoint to update a user
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
