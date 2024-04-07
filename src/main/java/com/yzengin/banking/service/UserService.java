@@ -21,6 +21,4 @@ public interface UserService {
     List<TransactionDto> getUserTransactions(Long id);
 
     AccountDto addAccountToUser(Long id, AccountDto accountDto);
-
-    TransactionDto addTransactionToUser(Long id, TransactionDto transactionDto);
 }
