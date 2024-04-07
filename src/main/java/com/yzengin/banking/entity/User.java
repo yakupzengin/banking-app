@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -27,8 +28,9 @@ public class User {
     private String lastName;
 
     @Column(nullable = false, unique = true, name = "username")
-    private String username;
-
+    private String userName;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Account> accounts;
     @Column(nullable = false, name = "password")
     private String password;
 
@@ -42,6 +44,7 @@ public class User {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
     public User(Long userId){
         this.id = userId;
     }
