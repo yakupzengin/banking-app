@@ -20,5 +20,5 @@ public class UserDto {
     private String password;
     private String email;
     private String phoneNumber;
-    private LocalDateTime updateAt;
+    private LocalDateTime createdAt;
 }
