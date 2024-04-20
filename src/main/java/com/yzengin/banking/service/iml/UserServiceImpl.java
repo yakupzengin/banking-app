@@ -15,6 +15,7 @@ import com.yzengin.banking.repository.UserRepository;
 import com.yzengin.banking.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -59,17 +60,30 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto updateUser(Long id, UserDto userDto) {
+        // 1. Retrieve the user to be updated from the database
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User does not exist."));
+
+        // 2. Update the username
+        user.setUserName(userDto.getUserName());
+
+        // 3. Check if the new username is already taken by another user
+        if (userRepository.existsByUserNameAndIdNot(user.getUserName(), id)) {
+            throw new RuntimeException("Username is already taken by another user.");
+        }
+
+        // 4. If the new username is unique, update other fields and save the user object to the database
         user.setName(userDto.getName());
         user.setLastName(userDto.getLastName());
-        user.setUserName(userDto.getUserName());
         user.setPassword(userDto.getPassword());
         user.setEmail(userDto.getEmail());
         user.setPhoneNumber(userDto.getPhoneNumber());
-        user.setPassword(userDto.getPassword());
+        user.setUpdatedAt(LocalDateTime.now());
         userRepository.save(user);
+
+        // 5. Convert the updated user object to UserDto and return
         return UserMapper.mapToUserDto(user);
     }
+
 
     @Override
     public List<AccountDto> getUserAccounts(Long id) {
