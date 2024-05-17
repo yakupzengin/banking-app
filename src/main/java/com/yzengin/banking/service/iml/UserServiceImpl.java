@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
         user.setUserName(userDto.getUserName());
 
         // 3. Check if the new username is already taken by another user
-        if (userRepository.existsByUserNameAndIdNot(user.getUserName(), id)) {
+            if (userRepository.existsByUserNameAndIdNot(user.getUsername(), id)) {
             throw new RuntimeException("Username is already taken by another user.");
         }
 
