@@ -19,19 +19,20 @@ public class UserMapper {
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setPassword(userDto.getPassword());
         user.setCreatedAt(LocalDateTime.now());
-
+        user.setRole(userDto.getRole());
         return user;
     }
 
     public static UserDto mapToUserDto(User savedUser) {
         UserDto userDto = new UserDto();
         userDto.setName(savedUser.getName());
-        userDto.setUserName(savedUser.getUserName());
+        userDto.setUserName(savedUser.getUsername());
         userDto.setLastName(savedUser.getLastName());
         userDto.setPassword(savedUser.getPassword());
         userDto.setEmail(savedUser.getEmail());
         userDto.setPhoneNumber(savedUser.getPhoneNumber());
         userDto.setCreatedAt(savedUser.getCreatedAt());
+        userDto.setRole(savedUser.getRole());
 
         // Convert accounts field from List<Account> to List<Account Dto> from User class
         List<AccountDto> accountDtos = AccountMapper.mapToAccountDtoList(savedUser.getAccounts());
